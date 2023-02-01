@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-APK link: https://dlsudphl-my.sharepoint.com/:u:/g/personal/abb1406_dlsud_edu_ph/EfmaZrWejldDobz4KVXI0usB7jNueptS9ZVbnbdYU2omJA?e=jE8B7c
+APK link: https://dlsudphl-my.sharepoint.com/:f:/g/personal/abb1406_dlsud_edu_ph/EkWixIeAJO9PqwiL3APO3qsBHZSMDEzi1t26FsjJaTXDYA?e=8lD9cL
 
 ## Getting Started
 
