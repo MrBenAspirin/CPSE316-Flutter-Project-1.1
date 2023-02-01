@@ -9,14 +9,7 @@ class Article {
   String author, title, description, url, urlToImage, publishedAt, content;
 
   Article(
-      {this.source,
-      this.author,
-      this.title,
-      this.description,
-      this.url,
-      this.urlToImage,
-      this.publishedAt,
-      this.content});
+      {this.source, this.author, this.title, this.description, this.url, this.urlToImage, this.publishedAt, this.content});
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(

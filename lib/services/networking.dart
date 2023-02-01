@@ -18,14 +18,20 @@ class StatusCodeDisplay extends StatelessWidget {
 class Networking {
   int statCode;
 
-  Future<List<Article>> getArticle(String search, String apiKey) async {
+  final String apiID1 = "77fc7fcb498f4837bda6bebb7cb033e2";
+  final String apiID2 = "f5f09f5970784ffb8a83aa7c05e8bf5e";
+
+  Future<List<Article>> getArticle(String search) async {
+
     //if theres no inputted search value in the textfield do:
     if (search == null) {
       try {
-        Response response = await get(Uri.parse("https://newsapi.org/v2/everything?q=news&apiKey=$apiKey"));
+        Response response1 = await get(Uri.parse("https://newsapi.org/v2/top-headlines?country=ph&apiKey=$apiID1"));
+        Response response2 = await get(Uri.parse("https://newsapi.org/v2/top-headlines?country=ph&apiKey=$apiID2"));
 
-        if (response.statusCode == 200) {
-          Map<String, dynamic> json = jsonDecode(response.body);
+        //if apiID 1 works do:
+        if (response1.statusCode == 200) {
+          Map<String, dynamic> json = jsonDecode(response1.body);
 
           List<dynamic> body = json['articles'];
 
@@ -33,8 +39,26 @@ class Networking {
           body.map((dynamic item) => Article.fromJson(item)).toList();
 
           return articles;
+
+          //if apiID 1 doesnt work use apiID 2:
+        } else if (response1.statusCode != 200) {
+          if (response2.statusCode == 200) {
+            Map<String, dynamic> json = jsonDecode(response2.body);
+
+            List<dynamic> body = json['articles'];
+
+            List<Article> articles =
+            body.map((dynamic item) => Article.fromJson(item)).toList();
+
+            return articles;
+        } else{
+            statCode = response2.statusCode;
+            print(response2.statusCode);
+            throw Exception("Response status code is not 200");
+          }
         } else {
-          statCode = response.statusCode;
+          statCode = response1.statusCode;
+          print(response1.statusCode);
           throw Exception("Response status code is not 200");
         }
       } catch (exception) {
@@ -44,10 +68,12 @@ class Networking {
       //if user inputted search value in the textfield do:
     } else {
       try {
-        Response response = await get(Uri.parse("https://newsapi.org/v2/everything?q=$search&apiKey=$apiKey"));
+        Response response1 = await get(Uri.parse("https://newsapi.org/v2/everything?q=$search&apiKey=$apiID1"));
+        Response response2 = await get(Uri.parse("https://newsapi.org/v2/everything?q=$search&apiKey=$apiID2"));
 
-        if (response.statusCode == 200) {
-          Map<String, dynamic> json = jsonDecode(response.body);
+        //if apiID 1 works do:
+        if (response1.statusCode == 200) {
+          Map<String, dynamic> json = jsonDecode(response1.body);
 
           List<dynamic> body = json['articles'];
 
@@ -55,8 +81,26 @@ class Networking {
           body.map((dynamic item) => Article.fromJson(item)).toList();
 
           return articles;
+
+          //if apiID 1 doesnt work use apiID 2:
+        }else if (response1.statusCode != 200){
+          if (response2.statusCode == 200) {
+            Map<String, dynamic> json = jsonDecode(response1.body);
+
+            List<dynamic> body = json['articles'];
+
+            List<Article> articles =
+            body.map((dynamic item) => Article.fromJson(item)).toList();
+
+            return articles;
+          } else {
+            statCode = response2.statusCode;
+            print(response2.statusCode);
+            throw Exception("Response status code is not 200");
+          }
         } else {
-          statCode = response.statusCode;
+          statCode = response1.statusCode;
+          print(response1.statusCode);
           throw Exception("Response status code is not 200");
         }
       } catch (exception) {
@@ -65,6 +109,3 @@ class Networking {
     }
   }
 }
-
-//final String apiID1 = "77fc7fcb498f4837bda6bebb7cb033e2";
-//final String apiID2 = "f5f09f5970784ffb8a83aa7c05e8bf5e";

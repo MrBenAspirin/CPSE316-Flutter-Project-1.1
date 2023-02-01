@@ -7,7 +7,7 @@ class ArticlePage extends StatelessWidget {
 
   ArticlePage({this.article});
 
-  Future<void> _launchURL(String url) async {
+  Future<void> launchURL(String url) async {
     final Uri uri = Uri.parse(article.url);
     if (!await launchUrl(
       uri,
@@ -69,7 +69,7 @@ class ArticlePage extends StatelessWidget {
             SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                _launchURL(article.url);
+                launchURL(article.url);
               },
               child: const Text("Read more in browser..."),
             ),

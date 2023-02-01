@@ -13,8 +13,8 @@ Widget newsfeedListTile(Article article, BuildContext context) {
             context,
             MaterialPageRoute(
                 builder: (context) => ArticlePage(
-                      article: article,
-                    )));
+                  article: article,
+                )));
       },
       child: Container(
         margin: EdgeInsets.all(12.0),

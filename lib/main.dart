@@ -52,7 +52,12 @@ class _HomePageState extends State<HomePage> {
         theme: theme,
         home: Scaffold(
           appBar: AppBar(
-            title: Text("New News", style: TextStyle(color: Colors.white)),
+            title: Image.asset(
+              'Image/logo.png',
+              fit: BoxFit.contain,
+              height: 5,
+              alignment: FractionalOffset.center,
+            ),
             backgroundColor: theme.primaryColor,
             actions: [
               IconButton(
@@ -104,7 +109,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Expanded(
                 child: FutureBuilder(
-                  future: network.getArticle(search, apiKey),
+                  future: network.getArticle(search),
                   builder: (BuildContext context,
                       AsyncSnapshot<List<Article>> snapshot) {
                     if (snapshot.hasData) {

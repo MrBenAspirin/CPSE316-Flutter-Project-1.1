@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:NewsApp/main.dart';
-import 'package:NewsApp/screens/apiKey_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -36,8 +35,8 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
         Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => InputScreen())));
+            () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomePage())));
   }
 
   @override
@@ -50,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
           gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
-              colors: [Colors.blueGrey, Colors.blueAccent]),
+              colors: [Colors.white, Colors.blueGrey]),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
