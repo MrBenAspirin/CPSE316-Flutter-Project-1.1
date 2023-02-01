@@ -53,9 +53,9 @@ class _HomePageState extends State<HomePage> {
         home: Scaffold(
           appBar: AppBar(
             title: Image.asset(
-              'Image/logo.png',
+              'assets/images/newsicon.png',
               fit: BoxFit.contain,
-              height: 5,
+              height: 50,
               alignment: FractionalOffset.center,
             ),
             backgroundColor: theme.primaryColor,
