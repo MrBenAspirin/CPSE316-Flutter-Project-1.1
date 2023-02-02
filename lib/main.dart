@@ -11,7 +11,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
         home: Scaffold(
           appBar: AppBar(
             title: Image.asset(
-              'assets/images/newsicon.jpeg',
+              'assets/images/newslogo.jpeg',
               fit: BoxFit.contain,
               height: 25,
               alignment: FractionalOffset.center,
