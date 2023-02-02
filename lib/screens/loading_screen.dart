@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Column(
               children: [
@@ -62,13 +62,16 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 200.0,
                   width: 200.0,
                 ),
+                SizedBox(
+                  height: 50.0,
+                ),
                 Text(
                   "Latest news\n at your fingertips",
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.justify,
                   style: TextStyle(
+                    fontFamily: 'FasterOne',
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
+                    fontSize: 25.0,
                   ),
                 ),
               ],
@@ -77,7 +80,7 @@ class _SplashScreenState extends State<SplashScreen> {
               itemBuilder: (BuildContext context, int index) {
                 return DecoratedBox(
                   decoration: BoxDecoration(
-                    color: index.isEven ? Colors.white : Colors.grey,
+                    color: index.isEven ? Colors.white54 : Colors.white70,
                   ),
                 );
               },

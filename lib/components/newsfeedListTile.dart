@@ -36,9 +36,7 @@ Widget newsfeedListTile(Article article, BuildContext context) {
               height: 200.0,
               width: double.infinity,
               decoration: BoxDecoration(
-                //let's add the height
-
-                image: DecorationImage(
+                 image: DecorationImage(
                     image: NetworkImage(article.urlToImage), fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(12.0),
               ),
@@ -47,7 +45,7 @@ Widget newsfeedListTile(Article article, BuildContext context) {
               height: 8.0,
             ),
             Container(
-              padding: EdgeInsets.all(6.0),
+              padding: EdgeInsets.all(7.0),
               decoration: BoxDecoration(
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(30.0),
@@ -55,6 +53,7 @@ Widget newsfeedListTile(Article article, BuildContext context) {
               child: Text(
                 article.source.name,
                 style: TextStyle(
+                  fontWeight: FontWeight.w500,
                   color: Colors.white,
                 ),
               ),
@@ -65,7 +64,7 @@ Widget newsfeedListTile(Article article, BuildContext context) {
             Text(
               article.title,
               style: TextStyle(
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w400,
                 fontSize: 16.0,
               ),
             )
