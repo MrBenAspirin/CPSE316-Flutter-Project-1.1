@@ -45,6 +45,7 @@ class Networking {
           if (response2.statusCode == 200) {
             Map<String, dynamic> json = jsonDecode(response2.body);
 
+
             List<dynamic> body = json['articles'];
 
             List<Article> articles =

@@ -7,6 +7,7 @@ class ArticlePage extends StatelessWidget {
 
   ArticlePage({this.article});
 
+  //Open Link in Browser:
   Future<void> launchURL(String url) async {
     final Uri uri = Uri.parse(article.url);
     if (!await launchUrl(
@@ -66,6 +67,8 @@ class ArticlePage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16.0),
+
+            //Read More Buttons Feature:
             ElevatedButton(
               onPressed: () {
                 launchURL(article.url);

@@ -7,6 +7,8 @@ Widget newsfeedListTile(Article article, BuildContext context) {
     data: Theme.of(context).brightness == Brightness.light
         ? ThemeData.light()
         : ThemeData.dark(),
+
+    //A clickable tile that goes to the news article page:
     child: InkWell(
       onTap: () {
         Navigator.push(
@@ -16,6 +18,8 @@ Widget newsfeedListTile(Article article, BuildContext context) {
                   article: article,
                 )));
       },
+
+      //Tile design with thumbnail, news source and title:
       child: Container(
         margin: EdgeInsets.all(12.0),
         padding: EdgeInsets.all(8.0),

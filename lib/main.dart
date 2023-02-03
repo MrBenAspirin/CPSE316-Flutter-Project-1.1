@@ -60,19 +60,25 @@ class _HomePageState extends State<HomePage> {
             ),
             backgroundColor: theme.primaryColor,
             actions: [
+
+              //Dark Mode Button:
               IconButton(
                 icon: Icon(
-                  Icons.brightness_4,
+                  Icons.brightness_4_outlined,
                   color: Colors.white,
                 ),
                 onPressed: toggleDarkMode,
               ),
             ],
           ),
+
+          //Main News Feed Screen:
           body: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
+
+                //Search Box:
                 child: TextField(
                   onChanged: (value) {
                     setState(() {
@@ -108,6 +114,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Expanded(
+
+                //Calling of various data and integrating a list:
                 child: FutureBuilder(
                   future: network.getArticle(search),
                   builder: (BuildContext context,
@@ -134,6 +142,8 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
+
+              //Read Time Feature:
               Row(
                 children: [
                   Padding(
